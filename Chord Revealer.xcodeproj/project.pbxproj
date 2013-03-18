@@ -18,6 +18,8 @@
 		631664FF16F7A94500609229 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 631664FE16F7A94500609229 /* Default-568h@2x.png */; };
 		6316650216F7A94500609229 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6316650016F7A94500609229 /* MainStoryboard.storyboard */; };
 		6316650516F7A94500609229 /* CRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6316650416F7A94500609229 /* CRViewController.m */; };
+		6316650D16F7A97200609229 /* CRPianoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6316650C16F7A97200609229 /* CRPianoView.m */; };
+		6316651016F7B55D00609229 /* CRKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6316650F16F7B55D00609229 /* CRKeyView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,10 @@
 		6316650116F7A94500609229 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6316650316F7A94500609229 /* CRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRViewController.h; sourceTree = "<group>"; };
 		6316650416F7A94500609229 /* CRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRViewController.m; sourceTree = "<group>"; };
+		6316650B16F7A97200609229 /* CRPianoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRPianoView.h; sourceTree = "<group>"; };
+		6316650C16F7A97200609229 /* CRPianoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRPianoView.m; sourceTree = "<group>"; };
+		6316650E16F7B55D00609229 /* CRKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRKeyView.h; sourceTree = "<group>"; };
+		6316650F16F7B55D00609229 /* CRKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRKeyView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,10 @@
 				6316650016F7A94500609229 /* MainStoryboard.storyboard */,
 				6316650316F7A94500609229 /* CRViewController.h */,
 				6316650416F7A94500609229 /* CRViewController.m */,
+				6316650B16F7A97200609229 /* CRPianoView.h */,
+				6316650C16F7A97200609229 /* CRPianoView.m */,
+				6316650E16F7B55D00609229 /* CRKeyView.h */,
+				6316650F16F7B55D00609229 /* CRKeyView.m */,
 				631664EF16F7A94500609229 /* Supporting Files */,
 			);
 			path = "Chord Revealer";
@@ -177,6 +187,8 @@
 				631664F516F7A94500609229 /* main.m in Sources */,
 				631664F916F7A94500609229 /* CRAppDelegate.m in Sources */,
 				6316650516F7A94500609229 /* CRViewController.m in Sources */,
+				6316650D16F7A97200609229 /* CRPianoView.m in Sources */,
+				6316651016F7B55D00609229 /* CRKeyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
