@@ -11,11 +11,12 @@
 
 @interface CRPianoView ()
 @property (nonatomic, readwrite) NSMutableArray *keyViews;
+@property (nonatomic, readwrite) NSMutableDictionary *keyViewsByNoteName;
 @end
 
 @implementation CRPianoView
 
-@synthesize keyViews;
+@synthesize keyViewsByNoteName;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -38,14 +39,16 @@
 - (void)setup
 {
     self.backgroundColor = [UIColor grayColor];
-    
+
     self.keyViews = [NSMutableArray arrayWithCapacity:12];
+    self.keyViewsByNoteName = [NSMutableDictionary dictionaryWithCapacity:12];
     
     NSString *scale = @"C C# D D# E F F# G G# A A# B";
     for(NSString *note in [scale componentsSeparatedByString:@" "]) {
-        CRKeyView *key = [CRKeyView keyViewWithNoteName:note];
-        [self.keyViews addObject:key];
-        [self addSubview:key];
+        CRKeyView *keyView = [CRKeyView keyViewWithNoteName:note];
+        [self.keyViewsByNoteName setObject:keyView forKey:note];
+        [self.keyViews addObject:keyView];
+        [self addSubview:keyView];
     }
 }
 
@@ -67,6 +70,10 @@
     }
 }
 
+- (void)beginHighlightingNote:(NSString *)noteName
+{
+    [[self.keyViewsByNoteName objectForKey:noteName] beginHighlighting];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

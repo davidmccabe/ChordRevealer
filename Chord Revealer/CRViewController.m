@@ -7,17 +7,20 @@
 //
 
 #import "CRViewController.h"
+#import "CRPianoView.h"
 
 @interface CRViewController ()
-
+@property (readwrite) IBOutlet CRPianoView *pianoView;
 @end
 
 @implementation CRViewController
 
+@synthesize pianoView;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [self.pianoView beginHighlightingNote:@"F#"];
 }
 
 - (void)didReceiveMemoryWarning

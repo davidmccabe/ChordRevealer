@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CRPianoView : UIView
-
+- (void)beginHighlightingNote:(NSString *)noteName;
 @end
