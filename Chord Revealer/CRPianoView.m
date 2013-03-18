@@ -41,16 +41,9 @@
     
     self.keyViews = [NSMutableArray arrayWithCapacity:12];
     
-    NSString *layout = @"wbwbwwbwbwbw";
-    for(int i = 0; i < [layout length]; i++) {
-        NSString *c = [layout substringWithRange:NSMakeRange(i, 1)];
-
-        CRKeyView *key;
-        if([c isEqual:@"w"]) {
-            key = [CRKeyView whiteKey];
-        } else {
-            key = [CRKeyView blackKey];
-        }
+    NSString *scale = @"C C# D D# E F F# G G# A A# B";
+    for(NSString *note in [scale componentsSeparatedByString:@" "]) {
+        CRKeyView *key = [CRKeyView keyViewWithNoteName:note];
         [self.keyViews addObject:key];
         [self addSubview:key];
     }
@@ -73,6 +66,7 @@
         }
     }
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

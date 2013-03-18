@@ -14,7 +14,6 @@ typedef enum {
 } CRKeyColor;
 
 @interface CRKeyView : UIView
-+ (CRKeyView *)whiteKey;
-+ (CRKeyView *)blackKey;
++ (CRKeyView *)keyViewWithNoteName:(NSString *)noteName;
 @property (assign) CRKeyColor keyColor;
 @end
