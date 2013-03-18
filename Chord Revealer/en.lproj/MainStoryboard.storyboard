@@ -16,12 +16,12 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="81s-kp-x0m" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="39" id="9Wf-OP-yIg"/>
-                            <constraint firstItem="81s-kp-x0m" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="Ka9-j8-1Im"/>
-                            <constraint firstItem="81s-kp-x0m" firstAttribute="top" secondItem="3" secondAttribute="top" constant="103" id="LmB-Nq-Iux"/>
-                            <constraint firstItem="81s-kp-x0m" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="m02-Qt-qoz"/>
+                            <constraint firstItem="81s-kp-x0m" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="2r0-q6-duF"/>
+                            <constraint firstItem="81s-kp-x0m" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="HcN-Sm-Iea"/>
+                            <constraint firstItem="81s-kp-x0m" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Pu1-a9-JQc"/>
+                            <constraint firstItem="81s-kp-x0m" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="rkU-5o-rp8"/>
                         </constraints>
                     </view>
                 </viewController>

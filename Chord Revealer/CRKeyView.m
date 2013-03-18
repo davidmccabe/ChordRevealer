@@ -14,7 +14,7 @@
 {
     CRKeyView *key = [[CRKeyView alloc] initWithFrame:CGRectZero];
     key.keyColor = CRKeyColorWhite;
-    key.backgroundColor = [UIColor grayColor];
+    key.backgroundColor = [UIColor whiteColor];
     return key;
 }
 

@@ -37,6 +37,8 @@
 
 - (void)setup
 {
+    self.backgroundColor = [UIColor grayColor];
+    
     self.keyViews = [NSMutableArray arrayWithCapacity:12];
     
     NSString *layout = @"wbwbwwbwbwbw";
@@ -56,18 +58,17 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    int numberOfWhiteKeys = 7;
     float x = 0;
-    float gap = 5;
-    float width = 32;
-    float height = 100;
+    float gap = 1;
+    float keyWidth = self.frame.size.width/numberOfWhiteKeys - gap / 2;
+    float height = self.frame.size.height;
     for(CRKeyView *key in self.keyViews) {
         if(key.keyColor == CRKeyColorWhite) {
-            key.center = CGPointMake(x,0);
-            key.bounds = CGRectMake(0,0,width,height);
-            x += width + gap;
+            key.frame = CGRectMake(x, 0, keyWidth, height);
+            x += keyWidth + gap;
         } else {
-            key.center = CGPointMake(x - (width + gap) / 2, -height/3);
-            key.bounds = CGRectMake(0,0,width,height);
+            key.frame = CGRectMake(x - (keyWidth + gap) / 2, 0, keyWidth, (height*2)/3);
             [self bringSubviewToFront:key];
         }
     }
