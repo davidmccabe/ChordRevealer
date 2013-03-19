@@ -20,6 +20,7 @@
 		6316650516F7A94500609229 /* CRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6316650416F7A94500609229 /* CRViewController.m */; };
 		6316650D16F7A97200609229 /* CRPianoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6316650C16F7A97200609229 /* CRPianoView.m */; };
 		6316651016F7B55D00609229 /* CRKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6316650F16F7B55D00609229 /* CRKeyView.m */; };
+		6316651216F7E99800609229 /* libpd-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6316651116F7E99800609229 /* libpd-ios.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		6316650C16F7A97200609229 /* CRPianoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRPianoView.m; sourceTree = "<group>"; };
 		6316650E16F7B55D00609229 /* CRKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRKeyView.h; sourceTree = "<group>"; };
 		6316650F16F7B55D00609229 /* CRKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRKeyView.m; sourceTree = "<group>"; };
+		6316651116F7E99800609229 /* libpd-ios.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libpd-ios.a"; path = "pd-for-ios/libpd/build/Release-iphoneos/libpd-ios.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6316651216F7E99800609229 /* libpd-ios.a in Frameworks */,
 				631664E916F7A94500609229 /* UIKit.framework in Frameworks */,
 				631664EB16F7A94500609229 /* Foundation.framework in Frameworks */,
 				631664ED16F7A94500609229 /* CoreGraphics.framework in Frameworks */,
@@ -79,6 +82,7 @@
 		631664E716F7A94500609229 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6316651116F7E99800609229 /* libpd-ios.a */,
 				631664E816F7A94500609229 /* UIKit.framework */,
 				631664EA16F7A94500609229 /* Foundation.framework */,
 				631664EC16F7A94500609229 /* CoreGraphics.framework */,
@@ -242,6 +246,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "../**";
 			};
 			name = Debug;
 		};
@@ -266,6 +271,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "../**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
