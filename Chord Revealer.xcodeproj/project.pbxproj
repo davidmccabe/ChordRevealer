@@ -21,6 +21,9 @@
 		6316650D16F7A97200609229 /* CRPianoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6316650C16F7A97200609229 /* CRPianoView.m */; };
 		6316651016F7B55D00609229 /* CRKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6316650F16F7B55D00609229 /* CRKeyView.m */; };
 		6316651216F7E99800609229 /* libpd-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6316651116F7E99800609229 /* libpd-ios.a */; };
+		6316651916F7F5EA00609229 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6316651816F7F5EA00609229 /* CoreAudio.framework */; };
+		6316651B16F7F61600609229 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6316651A16F7F61600609229 /* AudioToolbox.framework */; };
+		6316651D16F7F65A00609229 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6316651C16F7F65A00609229 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		6316650E16F7B55D00609229 /* CRKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRKeyView.h; sourceTree = "<group>"; };
 		6316650F16F7B55D00609229 /* CRKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRKeyView.m; sourceTree = "<group>"; };
 		6316651116F7E99800609229 /* libpd-ios.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libpd-ios.a"; path = "pd-for-ios/libpd/build/Release-iphoneos/libpd-ios.a"; sourceTree = "<group>"; };
+		6316651816F7F5EA00609229 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		6316651A16F7F61600609229 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6316651C16F7F65A00609229 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6316651D16F7F65A00609229 /* AVFoundation.framework in Frameworks */,
+				6316651B16F7F61600609229 /* AudioToolbox.framework in Frameworks */,
+				6316651916F7F5EA00609229 /* CoreAudio.framework in Frameworks */,
 				6316651216F7E99800609229 /* libpd-ios.a in Frameworks */,
 				631664E916F7A94500609229 /* UIKit.framework in Frameworks */,
 				631664EB16F7A94500609229 /* Foundation.framework in Frameworks */,
@@ -82,6 +91,9 @@
 		631664E716F7A94500609229 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6316651C16F7F65A00609229 /* AVFoundation.framework */,
+				6316651A16F7F61600609229 /* AudioToolbox.framework */,
+				6316651816F7F5EA00609229 /* CoreAudio.framework */,
 				6316651116F7E99800609229 /* libpd-ios.a */,
 				631664E816F7A94500609229 /* UIKit.framework */,
 				631664EA16F7A94500609229 /* Foundation.framework */,

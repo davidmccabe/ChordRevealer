@@ -8,19 +8,29 @@
 
 #import "CRViewController.h"
 #import "CRPianoView.h"
+#import "PdAudioController.h"
+#import "PdBase.h"
 
 @interface CRViewController ()
 @property (readwrite) IBOutlet CRPianoView *pianoView;
+@property (readwrite) PdAudioController *audioController;
 @end
 
 @implementation CRViewController
 
 @synthesize pianoView;
+@synthesize audioController;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.pianoView beginHighlightingNote:@"F#"];
+    
+    self.audioController = [[PdAudioController alloc] init];
+	[self.audioController configurePlaybackWithSampleRate:44100 numberChannels:2 inputEnabled:YES mixingEnabled:NO];
+	[PdBase openFile:@"revealer.pd" path:[[NSBundle mainBundle] resourcePath]];
+	[self.audioController setActive:YES];
+	[self.audioController print];
 }
 
 - (void)didReceiveMemoryWarning
