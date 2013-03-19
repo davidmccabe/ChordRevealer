@@ -48,9 +48,14 @@ void fiddle_tilde_setup();
 
 	[PdBase openFile:@"revealer.pd" path:[[NSBundle mainBundle] resourcePath]];
 	[self.audioController setActive:YES];
+    
+    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc]
+                                             initWithTarget:self action:@selector(resetGestureWasRecognized:)];
+    recognizer.direction = UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft;
+    [self.pianoView addGestureRecognizer:recognizer];
 }
 
--(void)receiveFloat:(float)pitch fromSource:(NSString *)source {
+- (void)receiveFloat:(float)pitch fromSource:(NSString *)source {
     numberOfNotesSinceReset++;
     if (numberOfNotesSinceReset > numberOfStrings) {
         [self.pianoView reset];
@@ -60,6 +65,12 @@ void fiddle_tilde_setup();
     NSArray *scale = [@"C C# D D# E F F# G G# A A# B" componentsSeparatedByString:@" "];
     int index = (int)round(pitch) % 12;
     [self.pianoView beginHighlightingNote:[scale objectAtIndex:index]];
+}
+
+- (void) resetGestureWasRecognized:(UIGestureRecognizer *)recognizer
+{
+    numberOfNotesSinceReset = 0;
+    [self.pianoView reset];
 }
 
 
