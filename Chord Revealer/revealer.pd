@@ -1,0 +1,6 @@
+#N canvas 0 22 450 300 10;
+#X obj 131 72 adc~;
+#X obj 132 112 fiddle~ 2048;
+#X floatatom 246 211 5 0 0 1 s:pitch - pitch;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;

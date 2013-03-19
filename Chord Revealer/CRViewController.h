@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PdDispatcher.h"
 
-@interface CRViewController : UIViewController
+@interface CRViewController : UIViewController<PdListener>
 
 @end

@@ -24,6 +24,8 @@
 		6316651916F7F5EA00609229 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6316651816F7F5EA00609229 /* CoreAudio.framework */; };
 		6316651B16F7F61600609229 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6316651A16F7F61600609229 /* AudioToolbox.framework */; };
 		6316651D16F7F65A00609229 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6316651C16F7F65A00609229 /* AVFoundation.framework */; };
+		6316652016F7FE3200609229 /* revealer.pd in Resources */ = {isa = PBXBuildFile; fileRef = 6316651F16F7FE3200609229 /* revealer.pd */; };
+		6316652C16F809D100609229 /* fiddle~.c in Sources */ = {isa = PBXBuildFile; fileRef = 6316652B16F809D100609229 /* fiddle~.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		6316651816F7F5EA00609229 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		6316651A16F7F61600609229 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6316651C16F7F65A00609229 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6316651F16F7FE3200609229 /* revealer.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = revealer.pd; sourceTree = "<group>"; };
+		6316652B16F809D100609229 /* fiddle~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "fiddle~.c"; path = "pd-for-ios/libpd/pure-data/extra/fiddle~/fiddle~.c"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 		631664EE16F7A94500609229 /* Chord Revealer */ = {
 			isa = PBXGroup;
 			children = (
+				6316652B16F809D100609229 /* fiddle~.c */,
+				6316651F16F7FE3200609229 /* revealer.pd */,
 				631664F716F7A94500609229 /* CRAppDelegate.h */,
 				631664F816F7A94500609229 /* CRAppDelegate.m */,
 				6316650016F7A94500609229 /* MainStoryboard.storyboard */,
@@ -190,6 +196,7 @@
 				631664FD16F7A94500609229 /* Default@2x.png in Resources */,
 				631664FF16F7A94500609229 /* Default-568h@2x.png in Resources */,
 				6316650216F7A94500609229 /* MainStoryboard.storyboard in Resources */,
+				6316652016F7FE3200609229 /* revealer.pd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +212,7 @@
 				6316650516F7A94500609229 /* CRViewController.m in Sources */,
 				6316650D16F7A97200609229 /* CRPianoView.m in Sources */,
 				6316651016F7B55D00609229 /* CRKeyView.m in Sources */,
+				6316652C16F809D100609229 /* fiddle~.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +265,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-DPD";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../**";
 			};
@@ -281,7 +290,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_CFLAGS = (
+					"-DPD",
+					"-DNS_BLOCK_ASSERTIONS=1",
+				);
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../**";
 				VALIDATE_PRODUCT = YES;
