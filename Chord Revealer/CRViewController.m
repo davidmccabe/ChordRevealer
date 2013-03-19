@@ -11,6 +11,7 @@
 #import "PdAudioController.h"
 #import "PdBase.h"
 #import "PdDispatcher.h"
+#import <math.h>
 
 void fiddle_tilde_setup();
 
@@ -29,7 +30,6 @@ void fiddle_tilde_setup();
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.pianoView beginHighlightingNote:@"F#"];
     
     self.audioController = [[PdAudioController alloc] init];
 	[self.audioController configurePlaybackWithSampleRate:44100 numberChannels:2 inputEnabled:YES mixingEnabled:NO];
@@ -49,8 +49,10 @@ void fiddle_tilde_setup();
     // Dispose of any resources that can be recreated.
 }
 
--(void)receiveFloat:(float)value fromSource:(NSString *)source {
-    NSLog(@"pitch: %f", value);
+-(void)receiveFloat:(float)pitch fromSource:(NSString *)source {
+    NSArray *scale = [@"C C# D D# E F F# G G# A A# B" componentsSeparatedByString:@" "];
+    int index = (int)round(pitch) % 12;
+    [self.pianoView beginHighlightingNote:[scale objectAtIndex:index]];
 }
 
 
