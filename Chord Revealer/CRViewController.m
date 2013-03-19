@@ -43,12 +43,6 @@ void fiddle_tilde_setup();
 	[self.audioController setActive:YES];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)receiveFloat:(float)pitch fromSource:(NSString *)source {
     NSArray *scale = [@"C C# D D# E F F# G G# A A# B" componentsSeparatedByString:@" "];
     int index = (int)round(pitch) % 12;
