@@ -27,7 +27,9 @@
         key.keyColor = CRKeyColorWhite;
         key.backgroundColor = [UIColor whiteColor];
     }
-    key.noteLabel.text = noteName;
+    
+    key.noteLabel.text = [noteName stringByReplacingOccurrencesOfString:@"#" withString:@"\u266F"];
+    
     return key;
 }
 
