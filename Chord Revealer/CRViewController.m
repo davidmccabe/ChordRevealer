@@ -59,7 +59,7 @@ void fiddle_tilde_setup();
     numberOfNotesSinceReset++;
     if (numberOfNotesSinceReset > numberOfStrings) {
         [self.pianoView reset];
-        numberOfNotesSinceReset = 0;
+        numberOfNotesSinceReset = 1;
     }
     
     NSArray *scale = [@"C C# D D# E F F# G G# A A# B" componentsSeparatedByString:@" "];
