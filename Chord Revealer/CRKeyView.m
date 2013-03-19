@@ -10,23 +10,31 @@
 
 @interface CRKeyView ()
 @property (readwrite) UILabel *noteLabel;
+@property (readwrite) UIColor *intrinsicBackgroundColor;
 @end
 
 @implementation CRKeyView
 
 @synthesize noteLabel;
 
++ (UIColor *)colorForKeyColor:(CRKeyColor)theKeyColor
+{
+    if (theKeyColor == CRKeyColorBlack)
+        return [UIColor blackColor];
+    else
+        return [UIColor whiteColor];
+}
+
 + (CRKeyView *)keyViewWithNoteName:(NSString *)noteName
 {
     CRKeyView *key = [CRKeyView new];
     if([noteName hasSuffix:@"#"]) {
         key.keyColor = CRKeyColorBlack;
-        key.backgroundColor = [UIColor blackColor];
-    }
-    else {
+    } else {
         key.keyColor = CRKeyColorWhite;
-        key.backgroundColor = [UIColor whiteColor];
     }
+    
+    key.backgroundColor = [CRKeyView colorForKeyColor:key.keyColor];
     
     key.noteLabel.text = [noteName stringByReplacingOccurrencesOfString:@"#" withString:@"\u266F"];
     
@@ -59,6 +67,11 @@
 - (void)beginHighlighting
 {
     self.backgroundColor = [UIColor redColor];
+}
+
+- (void)stopHighlighting
+{
+    self.backgroundColor = [CRKeyView colorForKeyColor:self.keyColor];
 }
 
 /*

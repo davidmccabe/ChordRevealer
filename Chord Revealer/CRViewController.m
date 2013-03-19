@@ -19,6 +19,8 @@ void fiddle_tilde_setup();
 @property (readwrite) IBOutlet CRPianoView *pianoView;
 @property (readwrite) PdAudioController *audioController;
 @property (readwrite) PdDispatcher *dispatcher;
+@property (assign) int numberOfNotesSinceReset;
+@property (assign) int numberOfStrings;
 @end
 
 @implementation CRViewController
@@ -26,10 +28,15 @@ void fiddle_tilde_setup();
 @synthesize pianoView;
 @synthesize audioController;
 @synthesize dispatcher;
+@synthesize numberOfNotesSinceReset;
+@synthesize numberOfStrings;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.numberOfStrings = 4;
+    self.numberOfNotesSinceReset = 0;
     
     self.audioController = [[PdAudioController alloc] init];
 	[self.audioController configurePlaybackWithSampleRate:44100 numberChannels:2 inputEnabled:YES mixingEnabled:NO];
@@ -44,6 +51,12 @@ void fiddle_tilde_setup();
 }
 
 -(void)receiveFloat:(float)pitch fromSource:(NSString *)source {
+    numberOfNotesSinceReset++;
+    if (numberOfNotesSinceReset > numberOfStrings) {
+        [self.pianoView reset];
+        numberOfNotesSinceReset = 0;
+    }
+    
     NSArray *scale = [@"C C# D D# E F F# G G# A A# B" componentsSeparatedByString:@" "];
     int index = (int)round(pitch) % 12;
     [self.pianoView beginHighlightingNote:[scale objectAtIndex:index]];

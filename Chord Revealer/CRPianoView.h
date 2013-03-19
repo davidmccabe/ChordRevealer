@@ -10,4 +10,5 @@
 
 @interface CRPianoView : UIView
 - (void)beginHighlightingNote:(NSString *)noteName;
+- (void)reset;
 @end

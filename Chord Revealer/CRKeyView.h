@@ -17,4 +17,5 @@ typedef enum {
 + (CRKeyView *)keyViewWithNoteName:(NSString *)noteName;
 @property (assign) CRKeyColor keyColor;
 - (void)beginHighlighting;
+- (void)stopHighlighting;
 @end

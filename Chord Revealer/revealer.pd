@@ -4,7 +4,7 @@
 #X floatatom 246 211 5 0 0 1 s:pitch - pitch;
 #X obj 79 185 print;
 #X obj 207 28 loadbang;
-#X msg 226 65 amp-range 60 60;
+#X msg 226 65 amp-range 80 80;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 1 0 3 0;

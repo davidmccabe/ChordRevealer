@@ -75,6 +75,13 @@
     [[self.keyViewsByNoteName objectForKey:noteName] beginHighlighting];
 }
 
+- (void)reset
+{
+    for(CRKeyView *key in self.keyViews) {
+        [key stopHighlighting];
+    }
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
