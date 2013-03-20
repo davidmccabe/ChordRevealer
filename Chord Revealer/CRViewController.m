@@ -12,6 +12,7 @@
 #import "PdBase.h"
 #import "PdDispatcher.h"
 #import <math.h>
+#import "CRNote.h"
 
 void fiddle_tilde_setup();
 
@@ -61,10 +62,7 @@ void fiddle_tilde_setup();
         [self.pianoView reset];
         numberOfNotesSinceReset = 1;
     }
-    
-    NSArray *scale = [@"C C# D D# E F F# G G# A A# B" componentsSeparatedByString:@" "];
-    int index = (int)round(pitch) % 12;
-    [self.pianoView beginHighlightingNote:[scale objectAtIndex:index]];
+    [self.pianoView beginHighlightingNote:[CRNote noteWithNumber:round(pitch)]];
 }
 
 - (void) resetGestureWasRecognized:(UIGestureRecognizer *)recognizer

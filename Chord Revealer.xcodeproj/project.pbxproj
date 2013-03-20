@@ -26,6 +26,8 @@
 		6316651D16F7F65A00609229 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6316651C16F7F65A00609229 /* AVFoundation.framework */; };
 		6316652016F7FE3200609229 /* revealer.pd in Resources */ = {isa = PBXBuildFile; fileRef = 6316651F16F7FE3200609229 /* revealer.pd */; };
 		6316652C16F809D100609229 /* fiddle~.c in Sources */ = {isa = PBXBuildFile; fileRef = 6316652B16F809D100609229 /* fiddle~.c */; };
+		632C996E16F992BB005DD63A /* MACollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C996D16F992BB005DD63A /* MACollectionUtilities.m */; };
+		63930C5316F85AB90000F019 /* CRNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 63930C5216F85AB90000F019 /* CRNote.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,12 +51,16 @@
 		6316650C16F7A97200609229 /* CRPianoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRPianoView.m; sourceTree = "<group>"; };
 		6316650E16F7B55D00609229 /* CRKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRKeyView.h; sourceTree = "<group>"; };
 		6316650F16F7B55D00609229 /* CRKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRKeyView.m; sourceTree = "<group>"; };
-		6316651116F7E99800609229 /* libpd-ios.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libpd-ios.a"; path = "pd-for-ios/libpd/build/Release-iphoneos/libpd-ios.a"; sourceTree = "<group>"; };
+		6316651116F7E99800609229 /* libpd-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpd-ios.a"; path = "pd-for-ios/libpd/build/Release-iphoneos/libpd-ios.a"; sourceTree = "<group>"; };
 		6316651816F7F5EA00609229 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		6316651A16F7F61600609229 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6316651C16F7F65A00609229 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6316651F16F7FE3200609229 /* revealer.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = revealer.pd; sourceTree = "<group>"; };
 		6316652B16F809D100609229 /* fiddle~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "fiddle~.c"; path = "pd-for-ios/libpd/pure-data/extra/fiddle~/fiddle~.c"; sourceTree = SOURCE_ROOT; };
+		632C996C16F992BB005DD63A /* MACollectionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MACollectionUtilities.h; path = MACollectionUtilities/MACollectionUtilities.h; sourceTree = SOURCE_ROOT; };
+		632C996D16F992BB005DD63A /* MACollectionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MACollectionUtilities.m; path = MACollectionUtilities/MACollectionUtilities.m; sourceTree = SOURCE_ROOT; };
+		63930C5116F85AB90000F019 /* CRNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRNote.h; sourceTree = "<group>"; };
+		63930C5216F85AB90000F019 /* CRNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRNote.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,10 @@
 				6316650C16F7A97200609229 /* CRPianoView.m */,
 				6316650E16F7B55D00609229 /* CRKeyView.h */,
 				6316650F16F7B55D00609229 /* CRKeyView.m */,
+				63930C5116F85AB90000F019 /* CRNote.h */,
+				63930C5216F85AB90000F019 /* CRNote.m */,
+				632C996C16F992BB005DD63A /* MACollectionUtilities.h */,
+				632C996D16F992BB005DD63A /* MACollectionUtilities.m */,
 				631664EF16F7A94500609229 /* Supporting Files */,
 			);
 			path = "Chord Revealer";
@@ -213,6 +223,8 @@
 				6316650D16F7A97200609229 /* CRPianoView.m in Sources */,
 				6316651016F7B55D00609229 /* CRKeyView.m in Sources */,
 				6316652C16F809D100609229 /* fiddle~.c in Sources */,
+				63930C5316F85AB90000F019 /* CRNote.m in Sources */,
+				632C996E16F992BB005DD63A /* MACollectionUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

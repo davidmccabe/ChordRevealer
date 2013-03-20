@@ -7,15 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum {
-    CRKeyColorWhite,
-    CRKeyColorBlack
-} CRKeyColor;
+#import "CRNote.h"
 
 @interface CRKeyView : UIView
-+ (CRKeyView *)keyViewWithNoteName:(NSString *)noteName;
-@property (assign) CRKeyColor keyColor;
++ (CRKeyView *)keyViewWithNote:(CRNote *)noteNumber;
+@property (readwrite) CRNote *note;
 - (void)beginHighlighting;
 - (void)stopHighlighting;
 @end

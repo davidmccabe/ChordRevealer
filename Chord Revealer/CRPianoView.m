@@ -8,15 +8,16 @@
 
 #import "CRPianoView.h"
 #import "CRKeyView.h"
+#import "MACollectionUtilities.h"
 
 @interface CRPianoView ()
-@property (nonatomic, readwrite) NSMutableArray *keyViews;
-@property (nonatomic, readwrite) NSMutableDictionary *keyViewsByNoteName;
+@property (readwrite) NSArray *notes;
+@property (readwrite) NSMutableArray *keyViews;
+@property (assign) int startingNoteNumber;
+@property (assign) int endingNoteNumber;
 @end
 
 @implementation CRPianoView
-
-@synthesize keyViewsByNoteName;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -40,27 +41,34 @@
 {
     self.backgroundColor = [UIColor grayColor];
 
-    self.keyViews = [NSMutableArray arrayWithCapacity:12];
-    self.keyViewsByNoteName = [NSMutableDictionary dictionaryWithCapacity:12];
+    self.startingNoteNumber = 60; // C0.
+    self.endingNoteNumber = 95; // B2.
     
-    NSString *scale = @"C C# D D# E F F# G G# A A# B";
-    for(NSString *note in [scale componentsSeparatedByString:@" "]) {
-        CRKeyView *keyView = [CRKeyView keyViewWithNoteName:note];
-        [self.keyViewsByNoteName setObject:keyView forKey:note];
+    self.notes = [CRNote notesFromNumber:self.startingNoteNumber toNumber:self.endingNoteNumber];
+    self.keyViews = [NSMutableArray arrayWithCapacity:self.notes.count];
+    
+    for(CRNote *note in self.notes) {
+        CRKeyView *keyView = [CRKeyView keyViewWithNote:note];
         [self.keyViews addObject:keyView];
         [self addSubview:keyView];
     }
 }
 
+- (int)numberOfWhiteKeys
+{
+    return [REJECT(self.notes, [obj isSharp]) count];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
-    int numberOfWhiteKeys = 7;
-    float x = 0;
+
     float gap = 1;
-    float keyWidth = self.frame.size.width/numberOfWhiteKeys - gap / 2;
+    float keyWidth = self.frame.size.width/[self numberOfWhiteKeys] - gap / 2;
     float height = self.frame.size.height;
+
+    float x = 0;
     for(CRKeyView *key in self.keyViews) {
-        if(key.keyColor == CRKeyColorWhite) {
+        if(! [key.note isSharp]) {
             key.frame = CGRectMake(x, 0, keyWidth, height);
             x += keyWidth + gap;
         } else {
@@ -70,9 +78,12 @@
     }
 }
 
-- (void)beginHighlightingNote:(NSString *)noteName
+- (void)beginHighlightingNote:(CRNote *)note
 {
-    [[self.keyViewsByNoteName objectForKey:noteName] beginHighlighting];
+    int indexForNote = note.number - self.startingNoteNumber;
+    if( 0 <= indexForNote && indexForNote < self.keyViews.count ) {
+        [[self.keyViews objectAtIndex:indexForNote] beginHighlighting];
+    }
 }
 
 - (void)reset

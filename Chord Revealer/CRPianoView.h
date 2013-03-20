@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CRNote.h"
 
 @interface CRPianoView : UIView
-- (void)beginHighlightingNote:(NSString *)noteName;
+- (void)beginHighlightingNote:(CRNote *)note;
 - (void)reset;
 @end

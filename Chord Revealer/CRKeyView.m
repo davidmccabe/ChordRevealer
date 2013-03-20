@@ -15,29 +15,16 @@
 
 @implementation CRKeyView
 
+@synthesize note;
 @synthesize noteLabel;
 
-+ (UIColor *)colorForKeyColor:(CRKeyColor)theKeyColor
-{
-    if (theKeyColor == CRKeyColorBlack)
-        return [UIColor blackColor];
-    else
-        return [UIColor whiteColor];
-}
-
-+ (CRKeyView *)keyViewWithNoteName:(NSString *)noteName
++ (CRKeyView *)keyViewWithNote:(CRNote *)theNote
 {
     CRKeyView *key = [CRKeyView new];
-    if([noteName hasSuffix:@"#"]) {
-        key.keyColor = CRKeyColorBlack;
-    } else {
-        key.keyColor = CRKeyColorWhite;
-    }
-    
-    key.backgroundColor = [CRKeyView colorForKeyColor:key.keyColor];
-    
-    key.noteLabel.text = [noteName stringByReplacingOccurrencesOfString:@"#" withString:@"\u266F"];
-    
+    key.note = theNote;
+    [key setBackgroundColorFromNote];
+    key.noteLabel.text = [[theNote name] stringByReplacingOccurrencesOfString:@"#" withString:@"\u266F"];
+    key.noteLabel.font = [UIFont systemFontOfSize:10];
     return key;
 }
 
@@ -58,9 +45,18 @@
     self.noteLabel.frame = CGRectMake(padding, self.frame.size.height - labelHeight - padding,
                                       self.frame.size.width - padding, labelHeight);
     
-    if(self.keyColor == CRKeyColorBlack) {
+    if([self.note isSharp]) {
         self.noteLabel.textColor = [UIColor whiteColor];
         self.noteLabel.backgroundColor = [UIColor blackColor];
+    }
+}
+
+- (void)setBackgroundColorFromNote
+{
+    if ([self.note isSharp]) {
+        self.backgroundColor = [UIColor blackColor];
+    } else {
+        self.backgroundColor = [UIColor whiteColor];
     }
 }
 
@@ -71,7 +67,7 @@
 
 - (void)stopHighlighting
 {
-    self.backgroundColor = [CRKeyView colorForKeyColor:self.keyColor];
+    [self setBackgroundColorFromNote];
 }
 
 /*
