@@ -93,6 +93,13 @@
     }
 }
 
+- (void)setChordFundamental:(CRNote *)note
+{
+    for(CRKeyView *key in self.keyViews) {
+        [key showIntervalWithFundamental:note];
+    }
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

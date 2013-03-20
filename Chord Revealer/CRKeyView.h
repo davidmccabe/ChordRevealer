@@ -14,4 +14,5 @@
 @property (readwrite) CRNote *note;
 - (void)beginHighlighting;
 - (void)stopHighlighting;
+- (void)showIntervalWithFundamental:(CRNote *)note;
 @end

@@ -10,7 +10,7 @@
 
 @interface CRKeyView ()
 @property (readwrite) UILabel *noteLabel;
-@property (readwrite) UIColor *intrinsicBackgroundColor;
+@property (readwrite) UILabel *intervalLabel;
 @end
 
 @implementation CRKeyView
@@ -24,7 +24,6 @@
     key.note = theNote;
     [key setBackgroundColorFromNote];
     key.noteLabel.text = [[theNote name] stringByReplacingOccurrencesOfString:@"#" withString:@"\u266F"];
-    key.noteLabel.font = [UIFont systemFontOfSize:10];
     return key;
 }
 
@@ -33,22 +32,31 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.noteLabel = [UILabel new];
-        [self addSubview:self.noteLabel];
+        self.intervalLabel = [UILabel new];
+        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureWasRecognized:)];
+        [self addGestureRecognizer:tapRecognizer];
     }
     return self;
 }
 
 - (void)layoutSubviews
 {
+    for(UILabel *label in @[self.noteLabel, self.intervalLabel]) {
+        label.font = [UIFont systemFontOfSize:10];
+        [self addSubview:label];
+        if([self.note isSharp]) {
+            label.textColor = [UIColor whiteColor];
+            label.backgroundColor = [UIColor blackColor];
+        }
+    }
+    
     CGFloat padding = 4;
     CGFloat labelHeight = self.noteLabel.intrinsicContentSize.height;
     self.noteLabel.frame = CGRectMake(padding, self.frame.size.height - labelHeight - padding,
                                       self.frame.size.width - padding, labelHeight);
-    
-    if([self.note isSharp]) {
-        self.noteLabel.textColor = [UIColor whiteColor];
-        self.noteLabel.backgroundColor = [UIColor blackColor];
-    }
+    self.intervalLabel.frame = CGRectMake(
+        padding, self.frame.size.height - labelHeight*2 - padding*2,
+        self.frame.size.width - padding, labelHeight);
 }
 
 - (void)setBackgroundColorFromNote
@@ -69,6 +77,17 @@
 {
     [self setBackgroundColorFromNote];
 }
+
+- (void)tapGestureWasRecognized:(UIGestureRecognizer *)recognizer
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"noteWasTapped" object:self.note];
+}
+
+- (void)showIntervalWithFundamental:(CRNote *)note
+{
+    self.intervalLabel.text = @"1";
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

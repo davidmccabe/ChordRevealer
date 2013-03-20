@@ -50,10 +50,22 @@ void fiddle_tilde_setup();
 	[PdBase openFile:@"revealer.pd" path:[[NSBundle mainBundle] resourcePath]];
 	[self.audioController setActive:YES];
     
-    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc]
-                                             initWithTarget:self action:@selector(resetGestureWasRecognized:)];
-    recognizer.direction = UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft;
-    [self.pianoView addGestureRecognizer:recognizer];
+    UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(resetGestureWasRecognized:)];
+    swipeRecognizer.direction = UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft;
+    [self.pianoView addGestureRecognizer:swipeRecognizer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noteWasTapped:) name:@"noteWasTapped" object:nil];
+}
+
+- (void)viewDidUnload
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)noteWasTapped:(NSNotification *)theNotification
+{
+    CRNote *note = theNotification.object;
+    [self.pianoView setChordFundamental:note];
 }
 
 - (void)receiveFloat:(float)pitch fromSource:(NSString *)source {
@@ -65,11 +77,13 @@ void fiddle_tilde_setup();
     [self.pianoView beginHighlightingNote:[CRNote noteWithNumber:round(pitch)]];
 }
 
-- (void) resetGestureWasRecognized:(UIGestureRecognizer *)recognizer
+- (void)resetGestureWasRecognized:(UIGestureRecognizer *)recognizer
 {
     numberOfNotesSinceReset = 0;
     [self.pianoView reset];
 }
+
+
 
 
 @end
