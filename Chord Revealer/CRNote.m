@@ -54,8 +54,10 @@
         @[@"M6", @"d7"],
         @[@"m7", @"A6"],
         @[@"M7", @"d8"]];
-        
-    int d = abs( self.number - fundamental.number ) % 12;
+    
+    int d = (self.number - fundamental.number) % 12;
+    if (d < 0) d += 12;
+    
     return names[d];
 }
 
