@@ -74,7 +74,7 @@ void fiddle_tilde_setup();
         [self.pianoView reset];
         numberOfNotesSinceReset = 1;
     }
-    [self.pianoView beginHighlightingNote:[CRNote noteWithNumber:round(pitch)]];
+    [self.pianoView beginHighlightingNote:[CRNote noteWithNumber:round(pitch)] asString:numberOfNotesSinceReset outOf:numberOfStrings];
 }
 
 - (void)resetGestureWasRecognized:(UIGestureRecognizer *)recognizer

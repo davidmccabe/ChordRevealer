@@ -12,7 +12,7 @@
 @interface CRKeyView : UIView
 + (CRKeyView *)keyViewWithNote:(CRNote *)noteNumber;
 @property (readwrite) CRNote *note;
-- (void)beginHighlighting;
+- (void)beginHighlightingAsString:(int)string outOf:(int)numberOfStrings;
 - (void)stopHighlighting;
 - (void)showIntervalWithFundamental:(CRNote *)note;
 @end

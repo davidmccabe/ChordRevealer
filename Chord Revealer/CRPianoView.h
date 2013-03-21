@@ -10,7 +10,7 @@
 #import "CRNote.h"
 
 @interface CRPianoView : UIView
-- (void)beginHighlightingNote:(CRNote *)note;
+- (void)beginHighlightingNote:(CRNote *)note asString:(int)string outOf:(int)numberOfStrings;
 - (void)reset;
 - (void)setChordFundamental:(CRNote *)note;
 @end

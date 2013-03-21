@@ -7,6 +7,7 @@
 //
 
 #import "CRKeyView.h"
+#import "UIColor+Expanded.h"
 
 @interface CRKeyView ()
 @property (readwrite) UILabel *noteLabel;
@@ -92,9 +93,11 @@
     }
 }
 
-- (void)beginHighlighting
+- (void)beginHighlightingAsString:(int)string outOf:(int)numberOfStrings
 {
-    self.backgroundColor = [UIColor redColor];
+    float fraction = (float)string / (float)numberOfStrings;
+    UIColor *color = [[UIColor blueColor] colorByInterpolatingToColor:[UIColor redColor] byFraction:fraction];
+    self.backgroundColor = color;
 }
 
 - (void)stopHighlighting

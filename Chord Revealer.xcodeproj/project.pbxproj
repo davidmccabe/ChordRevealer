@@ -27,6 +27,7 @@
 		6316652016F7FE3200609229 /* revealer.pd in Resources */ = {isa = PBXBuildFile; fileRef = 6316651F16F7FE3200609229 /* revealer.pd */; };
 		6316652C16F809D100609229 /* fiddle~.c in Sources */ = {isa = PBXBuildFile; fileRef = 6316652B16F809D100609229 /* fiddle~.c */; };
 		632C996E16F992BB005DD63A /* MACollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C996D16F992BB005DD63A /* MACollectionUtilities.m */; };
+		632C997116FAAB32005DD63A /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C997016FAAB32005DD63A /* UIColor+Expanded.m */; };
 		63930C5316F85AB90000F019 /* CRNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 63930C5216F85AB90000F019 /* CRNote.m */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		6316652B16F809D100609229 /* fiddle~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "fiddle~.c"; path = "pd-for-ios/libpd/pure-data/extra/fiddle~/fiddle~.c"; sourceTree = SOURCE_ROOT; };
 		632C996C16F992BB005DD63A /* MACollectionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MACollectionUtilities.h; path = MACollectionUtilities/MACollectionUtilities.h; sourceTree = SOURCE_ROOT; };
 		632C996D16F992BB005DD63A /* MACollectionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MACollectionUtilities.m; path = MACollectionUtilities/MACollectionUtilities.m; sourceTree = SOURCE_ROOT; };
+		632C996F16FAAB32005DD63A /* UIColor+Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Expanded.h"; path = "uicolor-utilities/Color/UIColor+Expanded/UIColor+Expanded.h"; sourceTree = SOURCE_ROOT; };
+		632C997016FAAB32005DD63A /* UIColor+Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Expanded.m"; path = "uicolor-utilities/Color/UIColor+Expanded/UIColor+Expanded.m"; sourceTree = SOURCE_ROOT; };
 		63930C5116F85AB90000F019 /* CRNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRNote.h; sourceTree = "<group>"; };
 		63930C5216F85AB90000F019 /* CRNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRNote.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +133,8 @@
 				63930C5216F85AB90000F019 /* CRNote.m */,
 				632C996C16F992BB005DD63A /* MACollectionUtilities.h */,
 				632C996D16F992BB005DD63A /* MACollectionUtilities.m */,
+				632C996F16FAAB32005DD63A /* UIColor+Expanded.h */,
+				632C997016FAAB32005DD63A /* UIColor+Expanded.m */,
 				631664EF16F7A94500609229 /* Supporting Files */,
 			);
 			path = "Chord Revealer";
@@ -225,6 +230,7 @@
 				6316652C16F809D100609229 /* fiddle~.c in Sources */,
 				63930C5316F85AB90000F019 /* CRNote.m in Sources */,
 				632C996E16F992BB005DD63A /* MACollectionUtilities.m in Sources */,
+				632C997116FAAB32005DD63A /* UIColor+Expanded.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

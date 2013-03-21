@@ -78,11 +78,11 @@
     }
 }
 
-- (void)beginHighlightingNote:(CRNote *)note
+- (void)beginHighlightingNote:(CRNote *)note asString:(int)string outOf:(int)numberOfStrings
 {
     int indexForNote = note.number - self.startingNoteNumber;
     if( 0 <= indexForNote && indexForNote < self.keyViews.count ) {
-        [[self.keyViews objectAtIndex:indexForNote] beginHighlighting];
+        [[self.keyViews objectAtIndex:indexForNote] beginHighlightingAsString:string outOf:numberOfStrings];
     }
 }
 
