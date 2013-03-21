@@ -15,17 +15,36 @@
 
 @implementation CRKeyView
 
-@synthesize note;
 @synthesize noteLabel;
 @synthesize intervalLabel;
+@synthesize note = _note;
 
 + (CRKeyView *)keyViewWithNote:(CRNote *)theNote
 {
     CRKeyView *key = [CRKeyView new];
     key.note = theNote;
-    [key setBackgroundColorFromNote];
-    key.noteLabel.text = [[theNote name] stringByReplacingOccurrencesOfString:@"#" withString:@"\u266F"];
     return key;
+}
+
+- (CRNote *)note
+{
+    return _note;
+}
+
+- (void)setNote:(CRNote *)theNote
+{
+    _note = theNote;
+    
+    self.noteLabel.text = [[theNote name] stringByReplacingOccurrencesOfString:@"#" withString:@"\u266F"];
+    
+    for(UILabel *label in @[self.noteLabel, self.intervalLabel]) {
+        if([theNote isSharp]) {
+            label.textColor = [UIColor whiteColor];
+            label.backgroundColor = [UIColor blackColor];
+        }
+    }
+    
+    [self setBackgroundColorFromNote];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -41,10 +60,6 @@
         for(UILabel *label in @[self.noteLabel, self.intervalLabel]) {
             label.font = [UIFont systemFontOfSize:10];
             [self addSubview:label];
-            if([self.note isSharp]) {
-                label.textColor = [UIColor whiteColor];
-                label.backgroundColor = [UIColor blackColor];
-            }
             label.translatesAutoresizingMaskIntoConstraints = NO;
         }
     }
