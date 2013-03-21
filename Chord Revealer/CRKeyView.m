@@ -17,6 +17,7 @@
 
 @synthesize note;
 @synthesize noteLabel;
+@synthesize intervalLabel;
 
 + (CRKeyView *)keyViewWithNote:(CRNote *)theNote
 {
@@ -31,32 +32,39 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.noteLabel = [UILabel new];
-        self.intervalLabel = [UILabel new];
         UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureWasRecognized:)];
         [self addGestureRecognizer:tapRecognizer];
+                
+        self.noteLabel = [UILabel new];
+        self.intervalLabel = [UILabel new];
+        for(UILabel *label in @[self.noteLabel, self.intervalLabel]) {
+            label.font = [UIFont systemFontOfSize:10];
+            [self addSubview:label];
+            if([self.note isSharp]) {
+                label.textColor = [UIColor whiteColor];
+                label.backgroundColor = [UIColor blackColor];
+            }
+            label.translatesAutoresizingMaskIntoConstraints = NO;
+        }
     }
     return self;
 }
 
-- (void)layoutSubviews
++ (BOOL)requiresConstraintBasedLayout
 {
-    for(UILabel *label in @[self.noteLabel, self.intervalLabel]) {
-        label.font = [UIFont systemFontOfSize:10];
-        [self addSubview:label];
-        if([self.note isSharp]) {
-            label.textColor = [UIColor whiteColor];
-            label.backgroundColor = [UIColor blackColor];
-        }
-    }
+    return YES;
+}
+
+- (void)updateConstraints
+{
+    NSArray *constraints = @[@"V:[intervalLabel]-4-[noteLabel]-4-|",
+                             @"H:|-4-[noteLabel]",
+                             @"H:|-4-[intervalLabel]"];
     
-    CGFloat padding = 4;
-    CGFloat labelHeight = self.noteLabel.intrinsicContentSize.height;
-    self.noteLabel.frame = CGRectMake(padding, self.frame.size.height - labelHeight - padding,
-                                      self.frame.size.width - padding, labelHeight);
-    self.intervalLabel.frame = CGRectMake(
-        padding, self.frame.size.height - labelHeight*2 - padding*2,
-        self.frame.size.width - padding, labelHeight);
+    for( NSString *constraint in constraints) {
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:constraint options:0 metrics:nil views:NSDictionaryOfVariableBindings(noteLabel, intervalLabel)]];
+    }
+    [super updateConstraints];
 }
 
 - (void)setBackgroundColorFromNote
