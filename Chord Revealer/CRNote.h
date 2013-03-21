@@ -16,5 +16,6 @@
 + (CRNote *)noteWithNumber:(int)theNumber;
 - (NSString *)name;
 - (BOOL)isSharp;
+- (NSArray *)namesOfIntervalWithFundamental:(CRNote *)fundamental;
 
 @end

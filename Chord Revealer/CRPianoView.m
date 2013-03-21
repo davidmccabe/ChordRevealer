@@ -42,7 +42,7 @@
     self.backgroundColor = [UIColor grayColor];
 
     self.startingNoteNumber = 60; // C0.
-    self.endingNoteNumber = 95; // B2.
+    self.endingNoteNumber = 80;
     
     self.notes = [CRNote notesFromNumber:self.startingNoteNumber toNumber:self.endingNoteNumber];
     self.keyViews = [NSMutableArray arrayWithCapacity:self.notes.count];
