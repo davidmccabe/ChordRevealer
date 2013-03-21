@@ -37,6 +37,7 @@
                 
         self.noteLabel = [UILabel new];
         self.intervalLabel = [UILabel new];
+        self.intervalLabel.numberOfLines = 2;
         for(UILabel *label in @[self.noteLabel, self.intervalLabel]) {
             label.font = [UIFont systemFontOfSize:10];
             [self addSubview:label];
@@ -94,7 +95,7 @@
 - (void)showIntervalWithFundamental:(CRNote *)fundamental
 {
     NSArray *names = [self.note namesOfIntervalWithFundamental:fundamental];
-    self.intervalLabel.text = [names componentsJoinedByString:@" "];
+    self.intervalLabel.text = [names componentsJoinedByString:@"\n"];
 }
 
 
