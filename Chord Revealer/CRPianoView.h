@@ -12,5 +12,5 @@
 @interface CRPianoView : UIView
 - (void)beginHighlightingNote:(CRNote *)note asString:(int)string outOf:(int)numberOfStrings;
 - (void)reset;
-- (void)setChordFundamental:(CRNote *)note;
+- (void)setChordRoot:(CRNote *)note;
 @end

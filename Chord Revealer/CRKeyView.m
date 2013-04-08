@@ -110,9 +110,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"noteWasTapped" object:self.note];
 }
 
-- (void)showIntervalWithFundamental:(CRNote *)fundamental
+- (void)showIntervalWithRoot:(CRNote *)root
 {
-    NSArray *names = [self.note namesOfIntervalWithFundamental:fundamental];
+    NSArray *names = [self.note namesOfIntervalWithRoot:root];
     self.intervalLabel.text = [names componentsJoinedByString:@"\n"];
 }
 

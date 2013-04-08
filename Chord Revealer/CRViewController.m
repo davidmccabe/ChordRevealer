@@ -67,7 +67,7 @@ void helmholtz_tilde_setup();
 - (void)noteWasTapped:(NSNotification *)theNotification
 {
     CRNote *note = theNotification.object;
-    [self.pianoView setChordFundamental:note];
+    [self.pianoView setChordRoot:note];
 }
 
 - (void)receiveFloat:(float)pitch fromSource:(NSString *)source {

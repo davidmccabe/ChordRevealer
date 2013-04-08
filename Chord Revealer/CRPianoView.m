@@ -93,10 +93,10 @@
     }
 }
 
-- (void)setChordFundamental:(CRNote *)note
+- (void)setChordRoot:(CRNote *)note
 {
     for(CRKeyView *key in self.keyViews) {
-        [key showIntervalWithFundamental:note];
+        [key showIntervalWithRoot:note];
     }
 }
 

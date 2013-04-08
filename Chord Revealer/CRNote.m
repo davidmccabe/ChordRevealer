@@ -39,7 +39,7 @@
     return [[self name] hasSuffix:@"#"];
 }
 
-- (NSArray *)namesOfIntervalWithFundamental:(CRNote *)fundamental
+- (NSArray *)namesOfIntervalWithRoot:(CRNote *)root
 {
     NSArray *names = @[
         @[@"P1", @"d2"],
@@ -55,7 +55,7 @@
         @[@"m7", @"A6"],
         @[@"M7", @"d8"]];
     
-    int d = (self.number - fundamental.number) % 12;
+    int d = (self.number - root.number) % 12;
     if (d < 0) d += 12;
     
     return names[d];
