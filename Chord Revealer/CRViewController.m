@@ -15,6 +15,7 @@
 #import "CRNote.h"
 
 void fiddle_tilde_setup();
+void helmholtz_tilde_setup();
 
 @interface CRViewController ()
 @property (readwrite) IBOutlet CRPianoView *pianoView;
@@ -46,6 +47,7 @@ void fiddle_tilde_setup();
     [self.dispatcher addListener:self forSource:@"pitch"];
     [PdBase setDelegate:self.dispatcher];
     fiddle_tilde_setup();
+    helmholtz_tilde_setup();
 
 	[PdBase openFile:@"revealer.pd" path:[[NSBundle mainBundle] resourcePath]];
 	[self.audioController setActive:YES];
