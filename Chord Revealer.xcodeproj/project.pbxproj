@@ -31,6 +31,7 @@
 		63930C5316F85AB90000F019 /* CRNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 63930C5216F85AB90000F019 /* CRNote.m */; };
 		63EB94AE17129CBE00B9149E /* Helmholtz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63EB94AC17129CBE00B9149E /* Helmholtz.cpp */; };
 		63EB94AF17129CBE00B9149E /* helmholtz~.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63EB94AD17129CBE00B9149E /* helmholtz~.cpp */; };
+		63EB94B417139DDD00B9149E /* threshold.c in Sources */ = {isa = PBXBuildFile; fileRef = 63EB94B317139DDD00B9149E /* threshold.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,8 @@
 		63EB94AC17129CBE00B9149E /* Helmholtz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Helmholtz.cpp; sourceTree = "<group>"; };
 		63EB94AD17129CBE00B9149E /* helmholtz~.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "helmholtz~.cpp"; sourceTree = "<group>"; };
 		63EB94B017129CCE00B9149E /* Helmholtz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helmholtz.h; sourceTree = "<group>"; };
+		63EB94B317139DDD00B9149E /* threshold.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = threshold.c; sourceTree = "<group>"; };
+		63EB94B517139E3900B9149E /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +126,12 @@
 		631664EE16F7A94500609229 /* Chord Revealer */ = {
 			isa = PBXGroup;
 			children = (
+				63EB94B517139E3900B9149E /* defines.h */,
 				63EB94B017129CCE00B9149E /* Helmholtz.h */,
 				63EB94AC17129CBE00B9149E /* Helmholtz.cpp */,
 				63EB94AD17129CBE00B9149E /* helmholtz~.cpp */,
 				6316652B16F809D100609229 /* fiddle~.c */,
+				63EB94B317139DDD00B9149E /* threshold.c */,
 				6316651F16F7FE3200609229 /* revealer.pd */,
 				631664F716F7A94500609229 /* CRAppDelegate.h */,
 				631664F816F7A94500609229 /* CRAppDelegate.m */,
@@ -241,6 +246,7 @@
 				632C997116FAAB32005DD63A /* UIColor+Expanded.m in Sources */,
 				63EB94AE17129CBE00B9149E /* Helmholtz.cpp in Sources */,
 				63EB94AF17129CBE00B9149E /* helmholtz~.cpp in Sources */,
+				63EB94B417139DDD00B9149E /* threshold.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

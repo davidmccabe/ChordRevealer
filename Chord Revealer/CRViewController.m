@@ -16,6 +16,7 @@
 
 void fiddle_tilde_setup();
 void helmholtz_tilde_setup();
+void threshold_setup();
 
 @interface CRViewController ()
 @property (readwrite) IBOutlet CRPianoView *pianoView;
@@ -48,6 +49,7 @@ void helmholtz_tilde_setup();
     [PdBase setDelegate:self.dispatcher];
     fiddle_tilde_setup();
     helmholtz_tilde_setup();
+    threshold_setup();
 
 	[PdBase openFile:@"revealer.pd" path:[[NSBundle mainBundle] resourcePath]];
 	[self.audioController setActive:YES];
